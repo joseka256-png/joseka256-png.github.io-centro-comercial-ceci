@@ -46,7 +46,7 @@ export const NEGOCIOS = [
     nombre: "Delicias Vivi",
     categoria: "Comidas rápidas · desde 2016",
     logo: "assets/img/logo-delicias-vivi.jpg",
-    foto: "assets/img/plazoleta.jpg",
+    foto: "assets/img/delicias-vivi-local.jpg",
     color: "#7A1F1A", colorOsc: "#561410", colorSuave: "#FFF3D6", acento: "#F5B921",
     telefono: "8847-2461",                    // PENDIENTE: número propio de Delicias Vivi
     whatsapp: "50688472461",

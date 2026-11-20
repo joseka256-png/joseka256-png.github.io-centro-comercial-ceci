@@ -202,3 +202,5 @@ footer a{color:#FFB98F}
   .anuncie{padding:28px}
 }
 @media (prefers-reduced-motion:reduce){.cinta div{animation:none}.aparecer{opacity:1;transform:none}}
+.ver-mas svg{width:18px;height:18px;flex:none}
+.negocio.vivi .fotos .principal{aspect-ratio:4/3;max-height:none}
