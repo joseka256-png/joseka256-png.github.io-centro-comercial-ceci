@@ -39,6 +39,7 @@ export const NEGOCIOS = [
     whatsapp: "50688807387",
     descripcion: "Todo para perros y gatos: alimento de calidad, arena, snacks, juguetes y accesorios. Distribuidores de NutriSource.",
     destacados: ["Alimento NutriSource", "Arena para gato", "Snacks y premios", "Collares y pecheras", "Juguetes", "Higiene y cuidado"],
+    verPagina: "Ver productos y pedir",
     tarjeta: true
   },
   {
@@ -52,6 +53,7 @@ export const NEGOCIOS = [
     whatsapp: "50688472461",
     descripcion: "Empanadas, hamburguesas, bocadillos y antojitos para compartir en la plazoleta de Ceci's.",
     destacados: ["Empanadas", "Hamburguesas", "Bocadillos", "Nachos", "Papas supreme", "Hot dogs"],
+    verPagina: "Ver menú y pedir",
     tarjeta: true
   },
   {

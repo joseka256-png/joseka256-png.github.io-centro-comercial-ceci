@@ -26,12 +26,12 @@ $("#grillaNegocios").innerHTML = NEGOCIOS.map(n => n.tipo === "publicidad" ? `
     <p>${esc(n.descripcion)}</p>
     <span class="ver-mas">Anunciarse aquí ${ico("flecha")}</span>
   </a>` : `
-  <a class="tarjeta-neg aparecer" href="#${n.id}" style="--c:${n.color};--suave:${n.colorSuave}">
+  <a class="tarjeta-neg aparecer" href="${n.id}/" style="--c:${n.color};--suave:${n.colorSuave}">
     <img class="logo" src="${n.logo}" alt="Logo de ${esc(n.nombre)}">
     <h3>${esc(n.nombre)}</h3><div class="cat">${esc(n.categoria)}</div>
     <p>${esc(n.descripcion)}</p>
     ${n.tarjeta ? `<span class="etiqueta-sellos">${ico("sello")} Cliente frecuente</span>` : ""}
-    <span class="ver-mas">Conocer más ${ico("flecha")}</span>
+    <span class="ver-mas">Ver su página ${ico("flecha")}</span>
   </a>`).join("");
 
 // ---------- secciones de cada negocio ----------
@@ -50,8 +50,8 @@ function seccionNegocio(n) {
       <div class="lista">${n.destacados.map(d => `<span>${esc(d)}</span>`).join("")}</div>
       ${L ? `<p class="intro" style="font-size:.95rem;margin:-6px 0 24px">${ico("sello").replace("<svg", '<svg style="width:18px;height:18px;vertical-align:-3px;margin-right:6px"')}Un sello por cada compra de ${colones(L.montoMinimo)} o más · ${L.meta} sellos = ${esc(L.premio.toLowerCase())}.</p>` : ""}
       <div class="acciones">
-        <a class="btn btn-primario" href="${wa(n.whatsapp, `Hola ${n.nombre}, les escribo desde el sitio de Ceci's.`)}" target="_blank" rel="noopener">${icoWA} Escribir por WhatsApp</a>
-        ${n.tarjeta ? `<a class="btn btn-claro" href="tarjeta.html?n=${n.id}">Mi tarjeta</a>` : ""}
+        <a class="btn btn-primario" href="${n.id}/">${n.verPagina || "Ver página completa"} ${ico("flecha")}</a>
+        ${n.tarjeta ? `<a class="btn btn-claro" href="${n.id}/#tarjeta">Mi tarjeta</a>` : ""}
       </div>
     </div>
   </div>`;
@@ -65,7 +65,7 @@ $("#tarjetasLealtad").innerHTML = conTarjeta.map(n => {
   const ejemplo = Math.min(3, L.meta);
   const sellos = Array.from({ length: L.meta }, (_, i) => `<i class="${i < ejemplo ? "on" : ""}">${i < ejemplo ? ico(icono) : ""}</i>`).join("");
   return `
-  <a class="tl ${clase} aparecer" href="tarjeta.html?n=${n.id}">
+  <a class="tl ${clase} aparecer" href="${n.id}/#tarjeta">
     <div class="fila"><img src="${n.logo}" alt=""><div><h3>${esc(n.nombre)}</h3><small>Compras desde ${colones(L.montoMinimo)}</small></div></div>
     <div class="sellos">${sellos}</div>
     <div class="pie"><span>${ico("regalo").replace("<svg", '<svg style="width:18px;height:18px;vertical-align:-3px;margin-right:6px"')}${esc(L.premio)}</span><b>Ver mi tarjeta →</b></div>

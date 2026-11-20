@@ -1,28 +1,35 @@
 # Centro Comercial Ceci's — sitio web (propuesta)
 
-Sitio del Centro Comercial Ceci's (350 m norte de la Basílica, Cartago). Propuesta de ISCR Tech, publicada en GitHub Pages mientras el cliente la aprueba.
+Un solo sitio (un dominio y un hosting) para todo el centro comercial, con una página completa para cada negocio:
 
-## Qué tiene
+| Ruta | Qué es |
+| --- | --- |
+| `/` | Inicio de Ceci's: negocios, cliente frecuente, Salón de Eventos Ceci, cómo llegar |
+| `/mundo-patitas/` | Página completa de Mundo Patitas: productos con carrito y pedido por WhatsApp, tarjeta de cliente frecuente, nosotros, visítanos |
+| `/delicias-vivi/` | Igual, para Delicias Vivi |
 
-- **Inicio** con los negocios del centro comercial.
-- **Mundo Patitas** y **Delicias Vivi**: sección propia y **tarjeta de cliente frecuente**.
-- **2 espacios publicitarios** (`tipo: "publicidad"` en `js/datos.js`) para los negocios que faltan.
-- **Salón de Eventos Ceci** con cotización por WhatsApp.
-- **Cómo llegar**: mapa, teléfono, horario y formas de pago.
-- `tarjeta.html`: billetera de tarjetas (un solo registro por teléfono, una tarjeta por negocio). **Hoy en modo demostración** (localStorage).
+Con dominio quedaría: `cecis.com`, `cecis.com/mundo-patitas`, `cecis.com/delicias-vivi`.
 
 ## Cómo se edita
 
-Todo el contenido está en **`js/datos.js`** (textos, teléfonos, negocios, reglas de sellos, salón). Las fotos van en `assets/img/`. Los datos marcados `PENDIENTE` hay que confirmarlos con el cliente.
+- **Inicio de Ceci's:** `js/datos.js` (textos, teléfonos, espacios publicitarios, salón) y fotos en `assets/img/`.
+- **Cada negocio:** `fuente/negocios/<id>/negocio.js` (menú, precios, colores, tarjeta) y sus fotos/logo en `fuente/negocios/<id>/assets/`.
+  Después de editar: **`node construir.mjs`** (Node 18+) → regenera las carpetas `mundo-patitas/` y `delicias-vivi/`. Subir todo a Git.
+- **Plantilla** (igual a la de La Central / Soda La Casita): `fuente/plantilla/`. No se edita por negocio.
+- **Negocio nuevo con página propia:** copiar `fuente/negocios/delicias-vivi/` con otro nombre, editar su `negocio.js`, `node construir.mjs`, y en `js/datos.js` agregarlo a `NEGOCIOS`.
 
-Para agregar un negocio de publicidad con nombre: cambiar `nombre`, `categoria` y `descripcion` del `espacio-1` / `espacio-2`. Para que use tarjeta: agregar `logo`, `color`, `tarjeta: true` y su regla en `LEALTAD`.
+Todo lo marcado `PENDIENTE` hay que confirmarlo con cada negocio. Los precios de los menús son de ejemplo.
 
-Vista local: `npx serve .`
+## Tarjeta de cliente frecuente
 
-## Paso a producción (cuando el cliente apruebe)
+- **Cada negocio tiene su propia tarjeta y su propia administración de sellos.** Un sello de Mundo Patitas no aparece en Delicias Vivi.
+- **Hoy en modo demostración** (`FIREBASE.demo: true`): los datos se guardan solo en el navegador (`src/firebase-demo.js`) y hay botones para simular la caja.
 
-1. Proyecto de Firebase propio del centro comercial (cuenta iscrtech.apps@gmail.com).
-2. Tarjetas en Firestore **por negocio**: `negocios/{idNegocio}/tarjetas/{telefono}` y `negocios/{idNegocio}/codigos/{qr}`, con las mismas reglas anti-abuso de la plantilla de La Central (QR de un solo uso, vence en minutos, espera mínima entre sellos).
-3. Personal: `staff/{uid}` con el campo `negocio`, para que la caja de Mundo Patitas solo pueda sellar tarjetas de Mundo Patitas y la de Delicias Vivi solo las suyas.
-4. Panel `/personal` por negocio (buscar cliente, generar QR, canjear).
-5. Repo privado + deploy automático a Firebase Hosting + dominio.
+### Paso a producción (cuando el cliente apruebe)
+
+1. Un proyecto de Firebase para todo Ceci's (cuenta iscrtech.apps@gmail.com): un solo hosting y dominio.
+2. Datos separados por negocio: `negocios/{idNegocio}/tarjetas/{telefono}` y `negocios/{idNegocio}/codigos/{qr}`, con las reglas anti-abuso de la plantilla (QR de un solo uso, vence en minutos, espera mínima entre sellos).
+3. Personal: `staff/{uid}` con el campo `negocio`. Las reglas solo dejan que el personal de un negocio vea y selle las tarjetas de **su** negocio.
+4. Panel `/mundo-patitas/personal` y `/delicias-vivi/personal`, cada uno con sus usuarios.
+5. En cada `negocio.js`: `FIREBASE.demo = false` y el `firebaseConfig` del proyecto. Ajustar `tarjeta.js`, `personal.html` y `firestore.rules` de la plantilla a las rutas `negocios/{id}/…`.
+6. Repo privado + deploy automático a Firebase Hosting + dominio.
