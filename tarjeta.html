@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mi tarjeta de cliente frecuente | Ceci's</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#2A1A12">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23E4672B'/%3E%3Ctext x='32' y='45' font-family='Arial Black,Arial' font-weight='900' font-size='38' fill='white' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilos.css">
+<style>
+  body{background:var(--tinta);color:#FFEFE3;min-height:100vh}
+  .cab{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+  .cab .marca b{color:#fff}.cab .marca small{color:#C9B4A5}
+  .cab a.volver{color:#FFB98F;font-weight:600;text-decoration:none;font-size:.95rem}
+  main{width:min(520px,100% - 32px);margin:10px auto 60px}
+  h1{font-size:2rem;margin:8px 0 6px}
+  .sub{color:#C9B4A5;margin-bottom:22px}
+  .pestanas{display:flex;gap:8px;background:rgba(255,255,255,.06);padding:6px;border-radius:999px;margin-bottom:18px}
+  .pestanas button{flex:1;border:0;background:none;color:#D8C2B3;font:700 .95rem var(--texto);padding:11px;border-radius:999px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+  .pestanas button img{width:26px;height:26px;border-radius:50%;object-fit:cover}
+  .pestanas button.activa{background:#fff;color:var(--tinta)}
+  .tl{min-height:auto;cursor:default}
+  .tl:hover{transform:none}
+  .tl .sellos{max-width:none}
+  .tl .nombre-cli{font:800 1.15rem var(--display)}
+  .barra-prog{height:8px;border-radius:8px;background:rgba(255,255,255,.2);overflow:hidden}
+  .barra-prog i{display:block;height:100%;background:#fff;border-radius:8px;transition:width .5s}
+  .tl.vivi .barra-prog i{background:var(--vivi-amarillo)}
+  .caja{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:22px;margin-top:18px}
+  .caja h3{font-size:1.15rem;margin-bottom:6px}
+  .caja p{color:#C9B4A5;font-size:.93rem}
+  label{display:block;font-weight:600;font-size:.9rem;margin:14px 0 6px;color:#FFEFE3}
+  input[type=text],input[type=tel]{width:100%;padding:14px 16px;border-radius:14px;border:1.5px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff;font:500 1.05rem var(--texto)}
+  input:focus{outline:none;border-color:var(--naranja)}
+  .acepto{display:flex;gap:10px;align-items:flex-start;font-weight:500;font-size:.88rem;color:#C9B4A5}
+  .acepto input{margin-top:4px;accent-color:var(--naranja);width:18px;height:18px}
+  .error{color:#FF9C8A;font-size:.88rem;margin-top:10px;min-height:1.2em}
+  .w100{width:100%;justify-content:center;margin-top:14px}
+  .demo{border-color:rgba(245,185,33,.4);background:rgba(245,185,33,.07)}
+  .demo .chip{display:inline-block;background:var(--vivi-amarillo);color:var(--tinta);font-weight:800;font-size:.72rem;padding:4px 10px;border-radius:999px;letter-spacing:.08em;margin-bottom:10px}
+  .botones{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .botones .btn{flex:1;justify-content:center;padding:12px 16px;font-size:.93rem}
+  .btn-borde{background:transparent;color:#FFEFE3;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.25)}
+  .hist{list-style:none;margin-top:10px}
+  .hist li{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:.92rem}
+  .hist li span:last-child{color:#C9B4A5}
+  .premio-listo{background:#fff;color:var(--tinta);border-radius:16px;padding:14px 16px;font-weight:700;display:flex;gap:10px;align-items:center}
+  .premio-listo svg{width:26px;height:26px;color:var(--naranja);flex:none}
+  .salir{background:none;border:0;color:#C9B4A5;text-decoration:underline;cursor:pointer;font:500 .88rem var(--texto);margin-top:18px}
+  .pop{animation:pop .5s ease}
+  @keyframes pop{0%{transform:scale(.4)}70%{transform:scale(1.15)}100%{transform:scale(1)}}
+</style>
+</head>
+<body>
+<div class="aviso-demo"><b>Modo demostración</b> · los sellos se guardan solo en este celular. En la versión final se guardan en la nube y los marca la caja.</div>
+<div class="envoltura cab">
+  <a class="marca" href="index.html"><span class="marca-sello">C</span><span><b>Ceci's</b><small>Cliente frecuente</small></span></a>
+  <a class="volver" href="index.html#frecuente">← Volver al sitio</a>
+</div>
+<main>
+  <h1>Mis tarjetas</h1>
+  <p class="sub">Un solo registro para todos los negocios participantes de Ceci's.</p>
+  <div class="pestanas" id="pestanas"></div>
+  <div id="contenido"></div>
+</main>
+<script type="module" src="js/tarjeta.js"></script>
+</body>
+</html>

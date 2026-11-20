@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Centro Comercial Ceci's | Cartago</title>
+<meta name="description" content="Centro Comercial Ceci's, 350 m norte de la Basílica de los Ángeles, Cartago. Mundo Patitas, Delicias Vivi, Salón de Eventos Ceci y tarjeta de cliente frecuente.">
+<meta property="og:title" content="Centro Comercial Ceci's · Cartago">
+<meta property="og:description" content="Comida, mascotas y buenos ratos, a pasos de la Basílica.">
+<meta property="og:image" content="assets/img/plazoleta.jpg">
+<meta name="theme-color" content="#E4672B">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23E4672B'/%3E%3Ctext x='32' y='45' font-family='Arial Black,Arial' font-weight='900' font-size='38' fill='white' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<div class="aviso-demo"><b>Versión de propuesta</b> · sitio en revisión, los datos marcados “por confirmar” pueden cambiar.</div>
+
+<header class="barra">
+  <div class="envoltura">
+    <a class="marca" href="#inicio"><span class="marca-sello">C</span><span><b>Ceci's</b><small>Centro Comercial</small></span></a>
+    <nav class="menu" id="menu">
+      <a href="#negocios">Negocios</a>
+      <a href="#frecuente">Cliente frecuente</a>
+      <a href="#salon">Salón de eventos</a>
+      <a href="#visita">Cómo llegar</a>
+    </nav>
+    <a class="btn btn-primario" id="btnTarjetaTop" href="tarjeta.html">Mi tarjeta</a>
+    <button class="hamburguesa" id="hamb" aria-label="Abrir menú"></button>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <span class="mancha m1"></span><span class="mancha m2"></span>
+  <div class="envoltura">
+    <div>
+      <span class="ojo">Cartago · a pasos de la Basílica</span>
+      <h1>Todo en un <em>mismo lugar</em>, en Ceci's.</h1>
+      <p class="intro" id="heroLema"></p>
+      <div class="hero-acciones">
+        <a class="btn btn-primario" href="#negocios">Ver los negocios <span id="icoFlecha"></span></a>
+        <a class="btn btn-claro" href="#salon">Salón de eventos</a>
+      </div>
+      <div class="hero-datos" id="heroDatos"></div>
+    </div>
+    <div class="hero-foto">
+      <div class="marco"><img src="assets/img/plazoleta.jpg" alt="Plazoleta de comidas del Centro Comercial Ceci's de noche"></div>
+      <div class="ficha f1"><img src="assets/img/logo-mundo-patitas.webp" alt=""><span>Mundo Patitas<small>Tienda de mascotas</small></span></div>
+      <div class="ficha f2"><img src="assets/img/logo-delicias-vivi.jpg" alt=""><span>Delicias Vivi<small>Comidas rápidas</small></span></div>
+    </div>
+  </div>
+</section>
+
+<div class="cinta" aria-hidden="true"><div id="cinta"></div></div>
+
+<section class="seccion" id="negocios">
+  <div class="envoltura">
+    <span class="ojo">Nuestros negocios</span>
+    <h2>Pase, coma y consienta a su mascota.</h2>
+    <p class="intro">Locales de barrio, atención de confianza y una plazoleta para quedarse un rato.</p>
+    <div class="grilla-negocios" id="grillaNegocios"></div>
+  </div>
+</section>
+
+<section class="negocio patitas" id="mundo-patitas"></section>
+<section class="negocio vivi invertido" id="delicias-vivi"></section>
+
+<section class="seccion frecuente" id="frecuente">
+  <div class="envoltura">
+    <span class="ojo">Tarjeta de cliente frecuente</span>
+    <h2>Sus compras ahora suman.</h2>
+    <p class="intro">Con su número de teléfono saca su tarjeta digital, sin apps ni tarjetas de cartón. Cada compra le da un sello y al llenarla, se lleva un premio.</p>
+    <div class="pasos">
+      <div class="paso"><b>1</b><h3>Regístrese</h3><p>Con su nombre y su número de teléfono, una sola vez. Sirve para todos los negocios participantes.</p></div>
+      <div class="paso"><b>2</b><h3>Escanee al pagar</h3><p>En la caja le muestran un código QR de un solo uso: lo escanea con el celular y el sello cae solo.</p></div>
+      <div class="paso"><b>3</b><h3>Reclame su premio</h3><p>Cuando completa la tarjeta, la caja le canjea el premio y empieza de nuevo.</p></div>
+    </div>
+    <div class="tarjetas-lealtad" id="tarjetasLealtad"></div>
+  </div>
+</section>
+
+<section class="seccion salon" id="salon"></section>
+
+<section class="seccion" style="padding-top:0">
+  <div class="envoltura">
+    <div class="anuncie">
+      <div><span class="ojo">Para negocios</span><h3>¿Quiere un local en Ceci's?</h3><p>Pregunte por los espacios disponibles y la publicidad en este sitio.</p></div>
+      <a class="btn btn-primario" id="btnLocal" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="seccion visita" id="visita" style="padding-top:20px">
+  <div class="envoltura">
+    <div>
+      <span class="ojo">Visítenos</span>
+      <h2>Cómo llegar</h2>
+      <div class="datos" id="datosVisita"></div>
+    </div>
+    <div class="mapa"><iframe id="mapa" title="Mapa del Centro Comercial Ceci's" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  </div>
+</section>
+
+<footer>
+  <div class="envoltura">
+    <div><b>Centro Comercial Ceci's</b> · Cartago, Costa Rica</div>
+    <div>Sitio web por <a href="https://iscrtech.com/" target="_blank" rel="noopener">ISCR Tech</a></div>
+  </div>
+</footer>
+
+<a class="wa-flotante" id="waFlotante" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"></a>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
